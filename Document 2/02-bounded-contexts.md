@@ -1,5 +1,5 @@
 # 02 - Bounded Contexts
-Sistema de Programación de Citas Médicas
+Healthcare Scheduling System
 
 ## Introducción
 
@@ -348,7 +348,7 @@ Este contexto es upstream de casi todos los demás; no depende de eventos extern
 
 ---
 
-## Mapa de Contextos (Context Map)
+## Context Map
 
 ```mermaid
 graph TD
