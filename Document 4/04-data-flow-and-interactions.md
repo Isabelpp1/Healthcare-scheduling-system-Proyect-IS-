@@ -261,7 +261,7 @@ sequenceDiagram
 
 ---
 
-### Camino de Fallo: Cancelación Tardía — Sin Derecho a Reembolso
+### Camino de Fallo: Cancelación Tardía (Sin Derecho a Reembolso)
 
 ```mermaid
 sequenceDiagram
