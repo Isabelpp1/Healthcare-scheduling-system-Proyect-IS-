@@ -93,9 +93,9 @@ Prevenido por esta decisión:
 Riesgos:
 | Riesgo | Mitigación |
 |--------|------------|
-| Un evento asíncrono se procesa dos veces (duplicado por reintento) | Todos los handlers de eventos deben ser idempotentes — verificar si el efecto ya fue aplicado antes de ejecutarlo.|
-| Un evento crítico se pierde y la cita nunca se confirma | El bus de eventos en producción usará RabbitMQ con persistencia de mensajes y confirmaciones explícitas.
-| El criterio mixto genera confusión en el equipo sobre cuándo usar cada estilo | Las reglas de esta decisión se documentan en el README del repositorio y se revisan en code review.
+| Un evento asíncrono se procesa dos veces (duplicado por reintento) | Todos los handlers de eventos deben ser idempotentes y se debe de verificar si el efecto ya fue aplicado antes de ejecutarlo |
+| Un evento crítico se pierde y la cita nunca se confirma | El bus de eventos en producción usará RabbitMQ con persistencia de mensajes y confirmaciones explícitas |
+| El criterio mixto genera confusión en el equipo sobre cuándo usar cada estilo | Las reglas de esta decisión se documentan en el README del repositorio y se revisan en code review |
 
 ---
 
