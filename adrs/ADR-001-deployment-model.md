@@ -42,7 +42,7 @@ Cada bounded context se implementa como un servicio independiente con su propio 
 | Aislamiento de fallos real pues un servicio caído no derrumba el sistema | Overhead de coordinación enorme para un equipo de 4–8 personas |
 | Equipos autónomos pueden desplegar sin coordinación                      | Las fronteras del dominio aún no están estabilizadas, cambiarlas implica modificar contratos de API entre servicios |
 | Tecnología heterogénea por servicio si se necesita                       | Consistencia eventual entre servicios requiere diseño cuidadoso de sagas o eventos compensatorios |
-| —                                                                        | Costo operativo desproporcionado para la etapa actual del proyecto |
+|                                                                          | Costo operativo desproporcionado para la etapa actual del proyecto |
 
 ---
 
