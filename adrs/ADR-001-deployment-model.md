@@ -3,7 +3,7 @@
 | Campo         | Valor                                      |
 |---------------|--------------------------------------------|
 | Estado        | Accepted                                   |
-| Fecha         | 2025-08-01                                 |
+| Fecha         | 2026-03-31                                 |
 | Responsables  | Isabel y Gabriela                          |
 
 ---
