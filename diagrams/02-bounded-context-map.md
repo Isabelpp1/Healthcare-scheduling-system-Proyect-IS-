@@ -8,21 +8,21 @@
 
 ```mermaid
 graph TD
-    subgraph CORE ["⭐ CORE DOMAIN"]
-        SCH["📅 Scheduling\n(Agendamiento de Citas)"]
+    subgraph CORE ["CORE DOMAIN"]
+        SCH[" Scheduling\n(Agendamiento de Citas)"]
     end
 
-    subgraph SUPPORT ["🔧 SUPPORTING SUBDOMAINS"]
-        DP["👨‍⚕️ Doctor Profiles\n(Perfiles Médicos)"]
-        PP["🧑‍💼 Patient Profiles\n(Perfiles de Pacientes)"]
-        PAY["💳 Payments\n(Pagos)"]
-        CR["📋 Clinical Records\n(Historial Clínico)"]
+    subgraph SUPPORT [" SUPPORTING SUBDOMAINS"]
+        DP[" Doctor Profiles\n(Perfiles Médicos)"]
+        PP["Patient Profiles\n(Perfiles de Pacientes)"]
+        PAY["Payments\n(Pagos)"]
+        CR["Clinical Records\n(Historial Clínico)"]
     end
 
-    subgraph GENERIC ["⚙️ GENERIC SUBDOMAINS"]
-        IAM["🔐 Identity & Access\n(Identidad y Acceso)"]
-        NOT["🔔 Notifications\n(Notificaciones)"]
-        ANA["📊 Analytics\n(Analítica y Reportes)"]
+    subgraph GENERIC [" GENERIC SUBDOMAINS"]
+        IAM[" Identity & Access\n(Identidad y Acceso)"]
+        NOT[" Notifications\n(Notificaciones)"]
+        ANA[" Analytics\n(Analítica y Reportes)"]
     end
 
     %% Identity → todos (OHS/PL)
@@ -67,11 +67,11 @@ graph TD
 
 ## Agrupación por Tipo de Subdominio
 
-### ⭐ Core Domain — *Scheduling*
+### Core Domain — *Scheduling*
 
 El agendamiento de citas es la **capacidad diferenciadora del negocio**. Ninguna otra solución genérica puede reemplazarlo porque contiene las reglas específicas de disponibilidad médica, las políticas de cancelación, la máquina de estados de las citas y la lógica de reserva concurrente. Todo el sistema existe para servir a este contexto.
 
-### 🔧 Supporting Subdomains
+### Supporting Subdomains
 
 Estos contextos **soportan directamente al core domain** pero no son el diferenciador principal del negocio:
 

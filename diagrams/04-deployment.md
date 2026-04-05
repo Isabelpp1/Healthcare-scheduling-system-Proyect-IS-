@@ -8,46 +8,46 @@
 
 ```mermaid
 graph TB
-    subgraph INTERNET ["🌐 Internet Público"]
-        USERS["👥 Usuarios\nPacientes · Médicos · Admins"]
-        STRIPE_EXT["💳 Stripe\n(Webhooks)"]
+    subgraph INTERNET [" Internet Público"]
+        USERS[" Usuarios\nPacientes · Médicos · Admins"]
+        STRIPE_EXT[" Stripe\n(Webhooks)"]
     end
 
-    subgraph CDN_LAYER ["☁️ CDN / Edge — Cloudflare"]
+    subgraph CDN_LAYER [" CDN / Edge — Cloudflare"]
         CDN["CDN\nAssets estáticos · DDoS protection\nSSL termination"]
     end
 
-    subgraph VPC ["🔒 VPC Privada — Railway / Render"]
+    subgraph VPC ["VPC Privada — Railway / Render"]
 
         subgraph GATEWAY ["API Layer"]
             GW["API Gateway\nNginx · Rate limiting\nRouting · Auth header"]
         end
 
         subgraph APP_TIER ["Application Tier"]
-            API["🖥️ apps/api\nMonolito Modular\nNode.js + Express\n(Container)"]
-            WORKER["⚙️ apps/worker\nBackground Jobs\nNode.js + BullMQ\n(Container)"]
+            API["apps/api\nMonolito Modular\nNode.js + Express\n(Container)"]
+            WORKER[" apps/worker\nBackground Jobs\nNode.js + BullMQ\n(Container)"]
         end
 
         subgraph DATA_TIER ["Data Tier"]
-            PGPRIMARY["🐘 PostgreSQL Primary\n(Read + Write)\nTablas por módulo\nSchemas separados"]
-            PGREPLICA["🐘 PostgreSQL Replica\n(Read Only)\nReportes · Analytics"]
-            REDIS["⚡ Redis\nCache de slots\nSesiones · Rate limit\nCola BullMQ"]
-            S3["📦 Object Storage\nS3-compatible\nDocumentos clínicos\nFotos de perfil · Reportes"]
+            PGPRIMARY["PostgreSQL Primary\n(Read + Write)\nTablas por módulo\nSchemas separados"]
+            PGREPLICA[" PostgreSQL Replica\n(Read Only)\nReportes · Analytics"]
+            REDIS[" Redis\nCache de slots\nSesiones · Rate limit\nCola BullMQ"]
+            S3[" Object Storage\nS3-compatible\nDocumentos clínicos\nFotos de perfil · Reportes"]
         end
 
-        subgraph OBS ["📊 Observabilidad"]
-            LOGS["📝 Logs\nLoki + Grafana\nLogs estructurados JSON"]
-            METRICS["📈 Métricas\nPrometheus + Grafana\nLatencia · Throughput · Errores"]
-            TRACES["🔍 Trazas\nOpenTelemetry\nFlujos end-to-end"]
+        subgraph OBS [" Observabilidad"]
+            LOGS[" Logs\nLoki + Grafana\nLogs estructurados JSON"]
+            METRICS[" Métricas\nPrometheus + Grafana\nLatencia · Throughput · Errores"]
+            TRACES[" Trazas\nOpenTelemetry\nFlujos end-to-end"]
         end
 
     end
 
-    subgraph EXTERNAL ["🔗 Servicios Externos Gestionados"]
-        STRIPE["💳 Stripe API"]
-        SENDGRID["📧 SendGrid"]
-        TWILIO["📱 Twilio SMS"]
-        FCM["🔔 Firebase FCM"]
+    subgraph EXTERNAL [" Servicios Externos Gestionados"]
+        STRIPE[" Stripe API"]
+        SENDGRID[" SendGrid"]
+        TWILIO[" Twilio SMS"]
+        FCM[" Firebase FCM"]
     end
 
     %% Flow from users
