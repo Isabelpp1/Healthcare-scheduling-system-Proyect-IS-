@@ -102,4 +102,3 @@ Riesgos:
 ## ADRs Relacionados
 
 - **ADR-001** — El monolito modular es el contexto que hace viable el bus de eventos interno en memoria para desarrollo.
-- **ADR-004** — La elección del bus de eventos (RabbitMQ) da soporte a la comunicación asíncrona en producción con las garantías de durabilidad requeridas.

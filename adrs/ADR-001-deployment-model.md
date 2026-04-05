@@ -86,4 +86,3 @@ Riesgos:
 
 - **ADR-002** — La elección de comunicación síncrona vs. asíncrona dentro del monolito refuerza la separación modular.
 - **ADR-003** — La estrategia de base de datos única con esquemas separados es coherente con el monolito modular.
-- **ADR-004** — El bus de eventos interno es la consecuencia directa de esta arquitectura.
