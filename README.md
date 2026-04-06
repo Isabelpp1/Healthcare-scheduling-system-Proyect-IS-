@@ -1,6 +1,6 @@
 # Sistema de Programación de Citas Médicas
 
-Plataforma digital que conecta pacientes con profesionales de la salud, permitiendo agendar, gestionar y pagar consultas médicas en línea. El sistema atiende a cuatro roles: pacientes, médicos, recepcionistas y administradores, resolviendo la fragmentación y fricción del proceso tradicional de agendamiento telefónico.
+Plataforma digital que conecta pacientes con profesionales de la salud, permitiendo agendar, gestionar y pagar consultas médicas en línea. El sistema atiende a cuatro roles: pacientes, médicos, recepcionistas y administradores, resolviendo la fragmentación y fricción del proceso tradicional de agendamiento telefónico, reduciendo inasistencias mediante recordatorios automáticos y centralizando pagos e historial clínico en una sola plataforma.
 
 ---
 
@@ -35,10 +35,6 @@ Se adoptó el **Monolito Modular** porque el equipo es de tamaño reducido (4–
 | [ADR-003-database-strategy.md](adrs/ADR-003-database-strategy.md) | PostgreSQL única con esquemas separados por bounded context |
 | [ADR-004-authentication-authorization.md](adrs/ADR-004-authentication-authorization.md) | JWT autogestionado con RBAC de 4 roles sobre proveedor de identidad externo |
 | [ADR-005-api-design.md](adrs/ADR-005-api-design.md) | REST para APIs externas, llamadas directas entre módulos para comunicación interna |
-| [ADR-006-event-bus.md](adrs/ADR-006-event-bus.md) | RabbitMQ como broker de eventos en producción sobre Kafka y SQS |
-| [ADR-007-observability.md](adrs/ADR-007-observability.md) | Stack open source Loki + Prometheus + Grafana + OpenTelemetry |
-| [ADR-008-caching.md](adrs/ADR-008-caching.md) | Redis con invalidación por eventos de dominio como estrategia de caché |
-| [ADR-009-deployment-cicd.md](adrs/ADR-009-deployment-cicd.md) | Docker + GitHub Actions + Railway como pipeline de CI/CD |
 
 ### diagrams/ — Diagramas de Arquitectura
 
@@ -58,9 +54,9 @@ Se adoptó el **Monolito Modular** porque el equipo es de tamaño reducido (4–
 | [03-load-balancer.md](infrastructure/03-load-balancer.md) | Nginx upstream: distribución de tráfico entre réplicas del monolito con health checks |
 | [04-cache.md](infrastructure/04-cache.md) | Redis: caché de slots, sesiones JWT, rate limiting distribuido y cola BullMQ |
 | [05-message-queue.md](infrastructure/05-message-queue.md) | RabbitMQ: entrega garantizada de eventos con dead-letter queues y routing por topic |
-| [06-background-workers.md](infrastructure/06-background-workers.md) | Worker process: jobs de recordatorios de cita y generación de reportes periódicos |
-| [07-primary-database.md](infrastructure/07-primary-database.md) | PostgreSQL con esquemas por contexto, réplica de lectura y estrategia de migraciones |
-| [08-observability-stack.md](infrastructure/08-observability-stack.md) | Loki + Prometheus + Grafana + OpenTelemetry: logs, métricas, trazas y SLOs |
+| [06-primary-database.md](infrastructure/06-primary-database.md) | PostgreSQL con esquemas por bounded context, réplica de lectura y estrategia de migraciones |
+| [07-authentication-provider.md](infrastructure/07-authentication-provider.md) | JWT autogestionado RS256: emisión de tokens, RBAC de 4 roles y revocación de sesiones |
+| [08-payment-provider.md](infrastructure/08-payment-provider.md) | Stripe: procesamiento de cobros, reembolsos, tokenización y webhooks de confirmación |
 
 ---
 
@@ -68,38 +64,34 @@ Se adoptó el **Monolito Modular** porque el equipo es de tamaño reducido (4–
 
 ```
 healthcare-scheduling/
-├── README.md                         
+├── README.md
 ├── proposals/
-│   ├── README.md
+│   ├── proposals-README.md
 │   ├── 01-high-level-architecture.md
 │   ├── 02-bounded-contexts.md
 │   ├── 03-service-module-decomposition.md
 │   └── 04-data-flow-and-interactions.md
 ├── adrs/
-│   ├── README.md
+│   ├── adrs-README.md
 │   ├── ADR-001-deployment-model.md
 │   ├── ADR-002-communication-style.md
 │   ├── ADR-003-database-strategy.md
 │   ├── ADR-004-authentication-authorization.md
-│   ├── ADR-005-api-design.md
-│   ├── ADR-006-event-bus.md
-│   ├── ADR-007-observability.md
-│   ├── ADR-008-caching.md
-│   └── ADR-009-deployment-cicd.md
+│   └── ADR-005-api-design.md
 ├── diagrams/
-│   ├── README.md
+│   ├── diagrams-README.md
 │   ├── 01-system-context.md
 │   ├── 02-bounded-context-map.md
 │   ├── 03-data-flow.md
 │   └── 04-deployment.md
 └── infrastructure/
-    ├── README.md
+    ├── infrastructure-README.md
     ├── 01-api-gateway.md
     ├── 02-cdn.md
     ├── 03-load-balancer.md
     ├── 04-cache.md
     ├── 05-message-queue.md
-    ├── 06-background-workers.md
-    ├── 07-primary-database.md
-    └── 08-observability-stack.md
+    ├── 06-primary-database.md
+    ├── 07-authentication-provider.md
+    └── 08-payment-provider.md
 ```
