@@ -11,10 +11,6 @@ Esta carpeta documenta las decisiones de diseño significativas del sistema: el 
 | [ADR-003](ADR-003-database-strategy.md) | Estrategia de Base de Datos — PostgreSQL con esquemas por contexto | Accepted |
 | [ADR-004](ADR-004-authentication-authorization.md) | Autenticación y Autorización — JWT autogestionado con RBAC | Accepted |
 | [ADR-005](ADR-005-api-design.md) | Diseño de API — REST externo, llamadas directas internas | Accepted |
-| [ADR-006](ADR-006-event-bus.md) | Bus de Eventos — RabbitMQ | Accepted |
-| [ADR-007](ADR-007-observability.md) | Estrategia de Observabilidad — Loki + Prometheus + Grafana + OpenTelemetry | Accepted |
-| [ADR-008](ADR-008-caching.md) | Estrategia de Caché — Redis con invalidación por eventos | Accepted |
-| [ADR-009](ADR-009-deployment-cicd.md) | Despliegue y CI/CD — Docker + GitHub Actions + Railway | Accepted |
 
 ---
 
