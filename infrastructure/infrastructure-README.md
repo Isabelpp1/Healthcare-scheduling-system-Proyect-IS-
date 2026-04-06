@@ -11,9 +11,9 @@ Esta carpeta documenta cada componente de infraestructura del sistema: qué hace
 | [03-load-balancer.md](03-load-balancer.md) | Nginx upstream | Distribución de tráfico entre réplicas del monolito con health checks automáticos |
 | [04-cache.md](04-cache.md) | Redis 7 | Caché de slots disponibles, sesiones JWT, rate limiting distribuido y cola de jobs BullMQ |
 | [05-message-queue.md](05-message-queue.md) | RabbitMQ 3.x | Entrega garantizada de eventos de dominio con dead-letter queues y routing por topic exchange |
-| [06-background-workers.md](06-background-workers.md) | Node.js + BullMQ | Proceso independiente para recordatorios de cita y generación de reportes periódicos |
-| [07-primary-database.md](07-primary-database.md) | PostgreSQL 16 | Base de datos principal con esquemas separados por bounded context y réplica de lectura |
-| [08-observability-stack.md](08-observability-stack.md) | Loki + Prometheus + Grafana + OpenTelemetry | Tres pilares de observabilidad: logs estructurados, métricas con SLOs y trazas distribuidas |
+| [06-primary-database.md](06-primary-database.md) | PostgreSQL | Base de datos principal con esquemas separados por bounded context y réplica de lectura |
+| [07-authentication-provider.md](07-authentication-provider.md) | JWT RS256 autogestionado | Emisión de tokens de acceso y refresco, RBAC de 4 roles y revocación de sesiones vía Redis |
+| [08-payment-provider.md](08-payment-provider.md) | Stripe | Procesamiento de cobros y reembolsos, tokenización PCI-compliant y recepción de webhooks firmados |
 
 ---
 
